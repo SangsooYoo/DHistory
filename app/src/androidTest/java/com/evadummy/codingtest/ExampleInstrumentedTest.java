@@ -1,4 +1,4 @@
-package com.humaxdigital.automotive.codingtest;
+package com.evadummy.codingtest;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.humaxdigital.automotive.codingtest", appContext.getPackageName());
+        assertEquals("com.evadummy.codingtest", appContext.getPackageName());
     }
 }

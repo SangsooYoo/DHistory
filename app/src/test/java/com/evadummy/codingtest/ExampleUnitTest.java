@@ -1,4 +1,4 @@
-package com.humaxdigital.automotive.codingtest;
+package com.evadummy.codingtest;
 
 import org.junit.Test;
 
