@@ -1,7 +1,9 @@
-package com.humaxdigital.automotive.codingtest.testcases;
+package com.evadummy.codingtest.solutions;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.evadummy.codingtest.solutions.Solution;
 
 import java.util.AbstractQueue;
 import java.util.ArrayList;
@@ -45,7 +47,12 @@ import java.util.Queue;
 //        1	1	1	[23:59]	09:00
 //        10	60	45	[23:59,23:59, 23:59, 23:59, 23:59, 23:59, 23:59, 23:59, 23:59, 23:59, 23:59, 23:59, 23:59, 23:59, 23:59, 23:59]	18:00
 //        해설 보러가기
-public class SolutionL3010 {
+public class SolutionL3010 extends Solution {
+
+    @Override
+    public int runSolution() {
+        return 0;
+    }
 
     public String solution(int n, int t, int m, String[] timetable) {
         String answer = "";

@@ -1,4 +1,4 @@
-package com.humaxdigital.automotive.codingtest.testcases;
+package com.evadummy.codingtest.solutions;
 
 
 //위 그림에서 1번 마을에 있는 음식점은 [1, 2, 4, 5] 번 마을까지는 3 이하의 시간에 배달할 수 있습니다. 그러나 3번 마을까지는 3시간 이내로 배달할 수 있는 경로가 없으므로 3번 마을에서는 주문을 받지 않습니다. 따라서 1번 마을에 있는 음식점이 배달 주문을 받을 수 있는 마을은 4개가 됩니다.
@@ -27,11 +27,19 @@ package com.humaxdigital.automotive.codingtest.testcases;
 //주어진 마을과 도로의 모양은 아래 그림과 같습니다.
 //image
 //1번 마을에서 배달에 4시간 이하가 걸리는 마을은 [1, 2, 3, 5] 4개이므로 4를 return 합니다.
+import com.evadummy.codingtest.solutions.Solution;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-class SolutionL3011 {
+class SolutionL3011 extends Solution {
+
+    @Override
+    public int runSolution() {
+        return 0;
+    }
+
     public int solution(int N, int[][] road, int K) {
         int answer = 0;
 
