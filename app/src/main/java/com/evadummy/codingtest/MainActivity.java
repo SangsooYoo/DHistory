@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.evadummy.codingtest.solutions.CompleteSearch2;
 import com.evadummy.codingtest.solutions.Solution;
-import com.evadummy.codingtest.solutions.SolutionCompleteSearch1;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,6 +15,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mSolution = new SolutionCompleteSearch1();
+        mSolution = new CompleteSearch2();
     }
 }
