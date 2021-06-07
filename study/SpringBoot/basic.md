@@ -28,7 +28,7 @@ https://goddaehee.tistory.com/238
 참조 https://atoz-develop.tistory.com/entry/Spring-%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B9%88Bean%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%83%9D%EC%84%B1-%EC%9B%90%EB%A6%AC
 
 ## @Controller
-해당 클래스가 Controller임을 나타내기 위한 어노테이션
+해당 클래스가 MVC모델 중, Controller임을 나타내기 위한 어노테이션
 
 ```
 @Controller  
@@ -57,6 +57,26 @@ public class MainController {
         ....
 	}
 }
+```
+
+## @Repository
+DAO임을 나타내는 어노테이션. 원래는 외부 I/O를 처리하는 목적으로 선언
+https://m.blog.naver.com/scw0531/220988401816
+
+## @Mapper
+미리 정의된 Xml과 해당 클래스를 매핑하기 위해 사용됨
+```
+@Mapper
+public interface UserSqlMapper {
+    ...
+}
+```
+user.xml
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smarthome.cms.repositories.main.UserSqlMapper">
+....
 ```
 
 # 기타 Annotation
