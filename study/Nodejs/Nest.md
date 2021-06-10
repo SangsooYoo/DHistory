@@ -98,6 +98,9 @@ getDocs(@Query("version") version) {
     }
 }
 ```
+## @Injectable
+Provider로 사용될 클래스임을 알려줌
+SpringBoot로 치면 Service
 
 ## @Module
 모듈의 조합을 통해 NestJS의 구조가 결정됨  
