@@ -1,12 +1,15 @@
 # Pandas
+
+
+------------------------------
+### 기본 API
+* how to import 
 import pandas as pd
-
-# API
-
-## DataFrame
 * df.info()  
 Pandas의 DataFrame()객체의 정보를 표시함
 
+------------------------------
+### 결측값들의 처리 
 * df.isnull()  
 결측값의 유무를 표로 표시함
 ```
@@ -18,6 +21,7 @@ d  False  False  False   True
 e  False  False  False  False
 f  False  False  False   True
 ```
+
 * df.isnull().sum()  
 결측값의 column별 합계 
 ```
@@ -339,4 +343,95 @@ sub1    23.0
 sub2     NaN
 sub3     NaN
 sub4     NaN
+```
+-----------------------------
+### 데이터 그룹화 방법
+* 과정
+   * 전체 데이터를 그룹별로 나누고
+   * 각 그룹별로 집계함수를 적용
+   * 그룹별 집계 결과를 하나로 합치는 과정
+
+* df.groupby('column_name')  
+특정 열을 기준으로 값들을 그룹화 함  
+결과물은 DataFrameGroupBy객체가 됨  
+df.groupby(['column_array']) 처럼 여러 열의 이름을 배열로 전달하면 배열로 전달된 열들 그룹값을 이용하여 그룹화함
+```
+// original 
+  product sensor  x   y
+0       a     s1  1   5
+1       b     s1  2   6
+2       a     s2  3   7
+3       b     s3  4   8
+4       a     s2  5   9
+5       b     s2  6  10
+6       a     s1  7  11
+7       a     s3  8  12
+
+df.groupby('product'
+)
+-----------------------
+key : a
+value :
+   product sensor  x   y
+0       a     s1  1   5
+2       a     s2  3   7
+4       a     s2  5   9
+6       a     s1  7  11
+7       a     s3  8  12
+-----------------------
+key : b
+value :
+   product sensor  x   y
+1       b     s1  2   6
+3       b     s3  4   8
+5       b     s2  6  10
+```
+
+* df.groupby('column_name').sum()  
+그룹화된 값들을 합계
+합계가능한 숫자데이터만 합계되고 나머지는 버려짐.
+```
+// original 
+  product sensor  x   y
+0       a     s1  1   5
+1       b     s1  2   6
+2       a     s2  3   7
+3       b     s3  4   8
+4       a     s2  5   9
+5       b     s2  6  10
+6       a     s1  7  11
+7       a     s3  8  12
+
+df.groupby('product'
+).sum()
+          x   y
+product        
+a        24  44
+b        12  24
+```
+
+* df.groupby(['column_array']).agg(condition)
+agg로 전달된 condition dictionary를 이용해서 열 별로  다른 집계함수를 호출할 수 있음
+```
+  product sensor  x   y
+0       a     s1  1   5
+1       b     s1  2   6
+2       a     s2  3   7
+3       b     s3  4   8
+4       a     s2  5   9
+5       b     s2  6  10
+6       a     s1  7  11
+7       a     s3  8  12
+
+condition = {'x':'max', 'y':'min'}
+grouped_product = df.groupby(['product','sensor']).agg(condition)
+
+product sensor       
+a       s1      7   5
+        s2      5   7
+        s3      8  12
+b       s1      2   6
+        s2      6  10
+        s3      4   8
+
 ```
