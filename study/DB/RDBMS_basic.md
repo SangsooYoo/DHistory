@@ -79,6 +79,9 @@ DELETE from 테이블명
 DELETE from 테이블명 WHERE 컬럼명=값
 ```
 
+## SHOW TABLES LIKE '테이블이름'
+해당 테이블의 존재 유무를 확인
+
 ## DROP DATABASE
 * DB자체를 삭제
 ```
