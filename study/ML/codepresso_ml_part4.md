@@ -224,3 +224,10 @@ https://colab.research.google.com/drive/1Ku_ikyOb_fVskUxu1hoNuXUbo-XZMs4L#scroll
     * 정해진 범위 안으로 데이터를 재배치함 (ex, 0~1)
     * 최대, 최소값의 차이가 큰경우 
 * 사이킷 런의 StandardScaler/ MinMaxScaler사용
+* 스케일링 시 주의사항
+    * 이상치에 영향을 많이 받으므로, 이상치 제거후에 스케일링 하는 것이 좋음
+    * feature별 특성을 고려하여 서로 다른 스케일러를 사용하는 것도 좋음
+    * fit메소드는 학습용 데이터 셋에만 적용하고 
+    * transform메소드로 학습용, 테스트용 데이터셋 변환 진행
+    * target(label)데이터는 별도의 스케일링 진행하지 않음
+    
