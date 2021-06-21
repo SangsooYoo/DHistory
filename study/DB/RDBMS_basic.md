@@ -106,7 +106,8 @@ CREATE TABLE professor
     _id INT PRIMARY KEY AUTO_INCREMENT, 
     name VARCHAR(32) NOT NULL, 
     belong VARCHAR(12) DEFAULT 'FOO', 
-    phone VARCHAR(12) 
+    phone VARCHAR(12) ,
+    PRIMARY KEY(_id, name) // 복합키 구성
 ) ENGINE=INNODB; 
 DESCRIBE professor;
 
