@@ -1,4 +1,50 @@
-# SQL query 기초 
+# **SQL query문 문법**
+---
+## **테이블 생성**
+### **CREATE TABLE**
+기본 문법  
+```
+CREATE TABLE 조건 테이블 이름 (
+    컬럼명 데이터타입 조건, 
+    ...
+);
+``` 
+예제
+```
+CREATE TABLE professor 
+( 
+    _id INT PRIMARY KEY AUTO_INCREMENT, 
+    name VARCHAR(32) NOT NULL, 
+    belong VARCHAR(12) DEFAULT 'FOO', 
+    phone VARCHAR(12) ,
+    PRIMARY KEY(_id, name) // 복합키 구성
+) ENGINE=INNODB; 
+DESCRIBE professor;
+```
+### **데이터 타입**
+- DATETIME  
+날짜정보, 한 테이블에 여러개 존재 가능 
+- TIMESTAMP  
+날짜정보, 한 테이블에 하나만 가능
+
+출처: https://futurists.tistory.com/11?category=587334 [미래학자]
+
+---
+## **테이블 삭제**
+### **DROP DATABASE**
+* DB자체를 삭제
+```
+DROP DATABASE db_name;
+```
+### **DROP TABLE**
+ DB에서 특정 테이블을 삭제
+```
+DROP TABLE table_name;
+```
+출처: https://futurists.tistory.com/12?category=587334 [미래학자]
+
+---
+```
 ## SELECT 컬럼명 FROM 테이블명 
 테이블에서 특정 컬럼을 읽어옴  
 컬럼 명에 *를 넣어서 전체를 불러올 수 있음
@@ -82,37 +128,7 @@ DELETE from 테이블명 WHERE 컬럼명=값
 ## SHOW TABLES LIKE '테이블이름'
 해당 테이블의 존재 유무를 확인
 
-## DROP DATABASE
-* DB자체를 삭제
-```
-DROP DATABASE db_name;
-```
-* DB에서 특정 테이블을 삭제
-```
-DROP TABLE table_name;
-```
-출처: https://futurists.tistory.com/12?category=587334 [미래학자]
 
-## CREATE TABLE
-테이블 생성
-``` 
-CREATE TABLE 조건 테이블 이름 (
-    컬럼명 데이터타입 조건, 
-    ...
-)
-
-CREATE TABLE professor 
-( 
-    _id INT PRIMARY KEY AUTO_INCREMENT, 
-    name VARCHAR(32) NOT NULL, 
-    belong VARCHAR(12) DEFAULT 'FOO', 
-    phone VARCHAR(12) ,
-    PRIMARY KEY(_id, name) // 복합키 구성
-) ENGINE=INNODB; 
-DESCRIBE professor;
-
-출처: https://futurists.tistory.com/11?category=587334 [미래학자]
-```
 ## INNER JOIN 
 여러 테이블에서 정보를 복합하여 추출해야 할때 사용  
 출처 http://egloos.zum.com/sweeper/v/3002133
@@ -185,4 +201,6 @@ ALTER TABLE hero DROP COLUMN star, DROP PRIMARY KEY;
 출처: https://futurists.tistory.com/14?category=587334 [미래학자]
 ## 부분적 함수 종속
 
-# 정규화
+## **정규화**
+ㅌㅌㅌ
+------------------------------------------------------
