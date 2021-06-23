@@ -315,4 +315,40 @@ https://colab.research.google.com/drive/1Ku_ikyOb_fVskUxu1hoNuXUbo-XZMs4L#scroll
 
 ---
 # **분류의 이해**
+대표적인 지도학습의 종류
 
+## **로지스틱 회귀의 이해**
+* 분류 문제에 선형 회귀를 적용하면, 선형회귀는 1차 방정식의 모양을 취하므로 판단의 결정에는 적합하지 않음
+* y값이 0~1사이의 값을 갖도록 sigmoid, logistic함수등을 이용함
+* y값이 1이될 확율을 구하는 것이 분류
+* 기본 임계값 0.5를 기준으로 P의 값이 임계값 보다 크면 참, 작으면 거짓으로 판단. 임계값은 학습을 통해 획득
+* y=wx+b (y는 음/양 무한대)=> P/1-P => 로그를 취함 log(P/1-P) 
+* 1/1+e^-(wx+b)
+* 로지스틱 회귀에서는 경사하강법으로 최적화 값을 찾을 수 없음, 로지스틱 함수가 여려개의 최저점을 갖기 때문.
+* 로그를 이용하여 그래프를 단순화하여 오류와 정확도의 적절한 점을 찾는것
+
+## **분류분석을 위한 성능지표**
+* 모델의 성능을 측정하기위한 정량적 평가지표가 중요함
+* 사이킷 런은 정량평가를 위한 다양한 metrics를 지원함
+* 실제 결과 True/False 모델의 예측결과 Positive/Negative   
+FN = False Negative = Type 1 error
+TP = True Positive  
+FP = False Positive = Type 2 error
+TN = True Negative  
+* 정확도 Accuracy: 정답을 정답으로 , 오답을 오답으로 선택했는가를 의미  
+TP+TN/TP+TN+FP+FN
+* 정밀도 Precision: 정답이 아닌것을 얼마나 잘 걸러내는가 를 의미함  
+TP/TP+FP ㄴ
+* 재현율 Recall: 실제 정답을 얼마나 많이 선택하는 가를 보여주는 지표
+TP/TP+FN  
+
+
+## **분류분석의 성능측정(ROC커브의 주요개념)**
+* 분류분석은 데이터 셋의 특성에 따라 신뢰할 수 있는 지표가 다름  
+ex) 암환자 진단 모델의 경우 Recall이 신뢰할 수 있는 지표였음
+* ROC : 모든 분류 임계값에서 분류모델의 성능을 보여주는 그래프  
+x축 : FPR(false positive rate), FP/ TN+FP, 실제 음성에서 허위 양성비율, 클수록 낮은 성능  
+y축: TPR(True positive rate) , recall에 해당하는 값
+* ROC의 임계값
+    * 분류분석에서 모델이 반환한 값 기반 Positive/Negative를 판단하는 기준값  
+    * 
