@@ -354,4 +354,4 @@ y축: TPR(True positive rate) , recall에 해당하는 값
     * 
 <script type="text/javascript"  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-$$ \sum\limits_{1=2}^{10}{x_i} $$
+ $$x_{n} = x_{n-1} + n$$
