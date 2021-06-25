@@ -351,7 +351,35 @@ x축 : FPR(false positive rate), FP/ TN+FP, 실제 음성에서 허위 양성비
 y축: TPR(True positive rate) , recall에 해당하는 값
 * ROC의 임계값
     * 분류분석에서 모델이 반환한 값 기반 Positive/Negative를 판단하는 기준값  
-    * 
-<script type="text/javascript"  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    * Negative 도수분포에서 임계점을 기준으로 하여 FPR산출 가능
+    * Positive 도수분포에서 임계점을 기준으로 하여 TPR산출 가능
+    * 임계점이 낮아질 경우  
+    FPR이 커짐 -> 낮은 성능, TPR이 커짐 ->  좋아짐
+    * 임계값이 높아질 경우  
+    FPR이 작아짐 -> 높은 성능, TPR이 작아짐 -> 성능 낮아짐 
+* ROC는 이 임계점을 0~1로 조정했을때 TPR(y좌표)/FPR(x좌표)의 값을 좌표로 그려낸 곡선이다.
+* ROC커브 아래의 면적을 AUC(Area under the Curve)이다. 
+* AUC의 값이 크면 높은 성능을 의미함 => 동일 모델에서 임계값 조절해 TRP증가시 FPR의 증가가 상대적으로 억제됨(TRP이 FPR보다 중요하므로)
+* Precision-Recall AUC
+    * ROC커브에서 X축과 Y축을 변경
+    * X축은 FPR = RECALL
+    * Y축은 TPR(RECALL) => Precision
+    * Trade off관계에 있는 두 값(Recall, Precision)을 종합하는 성능 지표로 사용
+## 의사결정 트리 Decision tree
+* 대표적 지도학습모델
+* 분류와 회귀 모두 사용가능
+    * Classification Tree
+    * Regression Tree
+* 컴퓨터 공학의 2진트리와 유사한 구조
+* 스무고개와 유사한 논리구조
 
- $$x_{n} = x_{n-1} + n$$
+## 의사결정 트리의 학습
+* 스무고개와 동일하지만 분류에 효과적인 질문부터 시작해야함.
+* Decision Tree가 어떤 순으로 질문을 선택할까? => 각 노드로 갈수록 분류되는 leaf노드들의 순도가 높아짐
+* 다음단계의 노드들의 순도가 높아지도록 
+* 다음단계의 노드들의 정보획득이 높아지도록
+* 불순도(impurity,엔트로피 등) 계산을 위한 지표  
+gini = 1 - 시그마(P^2(Ci))  
+entropy = 시그마 (-P(Ci) Log2(P(Ci)))
+* 정보획득(Information gain)  
+특정 단계와 그 다음 단계 사이에 불순도가 감소하는 수준  
