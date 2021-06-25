@@ -352,7 +352,5 @@ y축: TPR(True positive rate) , recall에 해당하는 값
 * ROC의 임계값
     * 분류분석에서 모델이 반환한 값 기반 Positive/Negative를 판단하는 기준값  
     * 
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-$$ \sum\limits_{1=2}^{10}{x_i} $$
+
+>$$ \sum\limits_{1=2}^{10}{x_i} $$
