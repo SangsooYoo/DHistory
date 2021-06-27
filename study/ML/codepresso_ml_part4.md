@@ -383,3 +383,44 @@ gini = 1 - 시그마(P^2(Ci))
 entropy = 시그마 (-P(Ci) Log2(P(Ci)))
 * 정보획득(Information gain)  
 특정 단계와 그 다음 단계 사이에 불순도가 감소하는 수준  
+
+-------------------------
+## **6강 지도학습을 위한 트리모델**
+Ensemble Learning(앙상블 학습 기법)의 개념
+* 다수의 ML 모델을 결합하여 학습, 예측 하는 기법
+* Decision Tree등의 단순한 모델을 여러개 결합해서 사용
+* 단일 ML모델을 사용하는 것 보다 일반적으로 예측 성능이 높음
+* 최신 앙상블 기법은 정형 데이터 셋에 대해서는 딥러닝에 필적하는 성능을 보임
+
+* Voting기법
+    * 서로 다른 ML모델을, 동일한 데이터 세트로 학습
+    * 다수의 학습 된 모델로 Prediction한 값으로 최종 투표
+* Bagging 기법
+    *  Bootstrap Aggregrating의 약자
+    * 전체 학습 데이터 셋에서 무작위로 복원 샘플 데이터 추출
+    * 동일한 ML모델을, 서로 다른 샘플 데이터 셋으로 학습. 각 학습은 독립적으로 수행
+    * 최종적으로 다수가 선택한 것을 선택
+* Boosting 기법
+    * Bagging과 유사하게 동일한 ML 모델을, 서로 다른 샘플 데이터 셋으로 학습
+    * 학습은 순차적이며, 이전 단계의 학습 결과를 토대로 다음 단계 샘플링에 가중치를 결정
+    * 예측 성능이 가장 높지만, 학습 속도가 매우 느림
+
+## **Random Forest모델**
+* Bagging기법을 사용하여 대표적인 앙상블 학습모델
+* Base모델로 Decision Tree를 사용 => Decision Tree를 여러개 사용하여 Forest라고 함
+* 일반적인 특징은 Decision Tree와 유사함
+* Decision Tree의 장점인 높은 모델 해석력은 해당되지 않음 -> 트리가 많아지기 때문에
+* 장점 
+    * Decision Tree의 장접을 대부분 포함(모델 해석력 제외)
+    * Decision Tree에 비해 여러 트리를 사용하기 때문에 Overfitting의 위험성이 상대적으로 적음
+    * 단일 ML 모델보다 일반적으로 예측성능이 좋음
+* 단점 
+    * 느린 학습 속도
+    * 하이퍼 파라미터 튜닝의 어려움 (너무 많은 조합이 가능해서)
+* 사이킷 런을 통한 실습
+    * RandomForestClassifier사용
+    * 대부분의 하이퍼 파라미터는 Decision Tree와 유사
+        * max_depth, max_leaf_nodes, max_features, ...
+    * n_estimators: 생성되는 Decision Tree의 개수 
+        * Default값은 100, 100개의 Decision Tree 학습 및 예측 Voting
+        * 많이 생성한다고 무한대로 예측성능이 좋아지지 않음, 적절한 수를 테스트를 통해 획득해야함. 
