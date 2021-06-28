@@ -424,3 +424,23 @@ Ensemble Learning(앙상블 학습 기법)의 개념
     * n_estimators: 생성되는 Decision Tree의 개수 
         * Default값은 100, 100개의 Decision Tree 학습 및 예측 Voting
         * 많이 생성한다고 무한대로 예측성능이 좋아지지 않음, 적절한 수를 테스트를 통해 획득해야함. 
+---------------------------
+# **차원 축소**
+## **주성분 분석(PCA)의 개념
+* 고차원 데이터를 효과적으로 분석하기 위한 대표적인 차원 축소 기법
+* 데이터 차원을 축소할 경우, 어떤 벡터에 데이터들을 정사영시켜야 데이터 구조 (분산)이 제일 잘 유지되는가 ?   
+차원을 축소한다는 것은 feature를 줄이는 것과 같음  
+주성분 벡터를 찾는다 -> 원본데이터의 분포를 동일하게 유지하여 정사영 시킬 수 있는 벡터
+* PCA과정
+    * 차원축소를 하기 위한 데이터 변수들에 Scaling(Z-score)
+    * Covariance Matrix를 구성(NxN정방 행렬, n= # of feature, 공분산 벡터)
+    * Cov. Matrix의 고유벡터(Eigenvector)와 고유값(Eigenvalue)를 산출
+    * Result : Projection on Eigenventor 
+* 공분산 (Covariance)의 의미
+    * 시그마 (Xi - X)(Yi-Y) / n-1
+    * 
+* 공분산 vs 고유값(Eigenvalue), 고유벡터(Eigenvector)
+    * 데이터 차원을 축소할 경우, 어떤 벡터에 데이터들을 정사영 시켜야 데이터 구조의 (분산)이 제일 잘 유지 되는가 ? 
+    * 벡터의 방향이 동일하다 -> 고유 벡터 
+    * 방향이 같은 벡터의 크기가 다를 경우. 고유벡터 기준 특정 상수의 배수만큼 커진다. 이 상수값이 고유벡터
+    * A 행렬이 주어질 때, AX = lamda X = lamda I X
