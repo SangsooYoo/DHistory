@@ -81,3 +81,91 @@ Project documentation is essential for getting others to understand why and how 
 * [Version Control ML Model](https://towardsdatascience.com/version-control-ml-model-4adb2db5f87c)
 * [How to version control your production machine learning models
 ](https://algorithmia.com/blog/how-to-version-control-your-production-machine-learning-models)
+
+# **Testing**
+## **Testing And Data Science**
+* Problems that could occur in data science aren’t always easily detectable; you might have values being encoded incorrectly, features being used inappropriately, or unexpected data breaking assumptions.
+* To catch these errors, you have to check for the quality and accuracy of your analysis in addition to the quality of your code. Proper testing is necessary to avoid unexpected surprises and have confidence in your results.
+* Test-driven development (TDD): A development process in which you write tests for tasks before you even write the code to implement those tasks.
+* Unit test: A type of test that covers a “unit” of code—usually a single function—independently from the rest of the program.
+
+* Resources
+    * Four Ways Data Science Goes Wrong and How Test-Driven Data Analysis Can Help: [Blog Post](https://www.predictiveanalyticsworld.com/machinelearningtimes/four-ways-data-science-goes-wrong-and-how-test-driven-data-analysis-can-help/6947/)
+    * Ned Batchelder: Getting Started Testing: [Slide](https://speakerdeck.com/pycon2014/getting-started-testing-by-ned-batchelder) Deck and [Presentation Video](https://www.youtube.com/watch?v=FxSsnHeWQBY)
+
+## **Unit test**
+Unit Testing Tools
+* To install pytest, ```run pip install -U pytest``` in your terminal. You can see more information on getting started [here](https://docs.pytest.org/en/6.2.x/reference.html).
+    * Create a test file starting with test_.
+    * Define unit test functions that start with test_ inside the test file.
+    * Enter pytest into your terminal in the directory of your test file and it detects these tests for you.
+* test_ is the default; if you wish to change this, you can learn how in this pytest [configuration](https://docs.pytest.org/en/latest/customize.html).
+
+* In the test output, periods represent successful unit tests and Fs represent failed unit tests. Since all you see is which test functions failed, it's wise to have only one assert statement per test. Otherwise, you won't know exactly how many tests failed or which tests failed.
+
+* Your test won't be stopped by failed assert statements, but it will stop if you have syntax errors.
+
+## **Test-driven development and data science**
+* Test-driven development: Writing tests before you write the code that’s being tested. Your test fails at first, and you know you’ve finished implementing a task when the test passes.
+* Tests can check for different scenarios and edge cases before you even start to write your function. When start implementing your function, you can run the test to get immediate feedback on whether it works or not as you tweak your function.
+* When refactoring or adding to your code, tests help you rest assured that the rest of your code didn't break while you were making those changes. Tests also helps ensure that your function behavior is repeatable, regardless of external parameters such as hardware and time.
+
+Test-driven development for data science is relatively new and is experiencing a lot of experimentation and breakthroughs. You can learn more about it by exploring the following resources.
+* [Data Science TDD](https://www.linkedin.com/pulse/data-science-test-driven-development-sam-savage/)
+* [TDD for Data Science](http://engineering.pivotal.io/post/test-driven-development-for-data-science/)
+* [TDD is Essential for Good Data Science Here's Why](https://medium.com/uk-hydrographic-office/test-driven-development-is-essential-for-good-data-science-heres-why-db7975a03a44)
+* [Testing Your Code ](http://engineering.pivotal.io/post/test-driven-development-for-data-science/) (general python TDD)
+
+## **Logging**
+Log messages
+Logging is the process of recording messages to describe events that have occurred while running your software.
+* Tip: Be professional and clear
+* Tip: Be concise and use normal capitalization
+* Tip: Choose the appropriate level for logging
+* Tip: Provide any useful information
+
+## **code reviews**
+* [Code Reviews](https://github.com/lyst/MakingLyst/tree/master/code-reviews)
+* [Code Review best practices](https://www.kevinlondon.com/2015/05/05/code-review-best-practices.html)
+
+**Questions to ask yourself when conducting a code review**
+
+**Is the code clean and modular?**
+* Can I understand the code easily?
+* Does it use meaningful names and whitespace?
+* Is there duplicated code?
+* Can I provide another layer of abstraction?
+* Is each function and module necessary?
+* Is each function or module too long?
+
+**Is the code efficient?**
+* Are there loops or other steps I can vectorize?
+* Can I use better data structures to optimize any steps?
+* Can I shorten the number of calculations needed for any steps?
+* Can I use generators or multiprocessing to optimize any steps?
+
+**Is the documentation effective?**
+* Are inline comments concise and meaningful?
+* Is there complex code that's missing documentation?
+* Do functions use effective docstrings?
+* Is the necessary project documentation provided?
+
+**Is the code well tested?**
+* Does the code high test coverage?
+* Do tests check for interesting cases?
+* Are the tests readable?
+Can the tests be made more efficient?
+
+**Is the logging effective?**
+* Are log messages clear, concise, and professional?
+* Do they include all relevant and useful information?
+* Do they use the appropriate logging level?
+
+## **Tips for conducting a code review**
+* Tip: Use a code linter [pylint](https://www.pylint.org/) : will help you to check the coding conventions and errors
+* Tip: Explain issues and make suggestions  
+Rather than commanding people to change their code a specific way because it's better, it will go a long way to explain to them the consequences of the current code and suggest changes to improve it
+* Tip: Keep your comments objective  
+Try to avoid using the words "I" and "you" in your comments. You want to avoid comments that sound personal to bring the attention of the review to the code and not to themselves.
+* Tip: Provide code examples   
+When providing a code review, you can save the author time and make it easy for them to act on your feedback by writing out your code suggestions. 
