@@ -41,3 +41,41 @@ Let’s dig one level deeper by looking at how GANs are trained and used within 
 * Discriminator loss: Evaluates how well the discriminator differentiates between real and fake data.
 
 ----
+## **Contributing to a GitHub project**
+* [Beginner's Guide to Contributing to a Github Project
+](https://akrabat.com/the-beginners-guide-to-contributing-to-a-github-project/)
+*[Contributing to a Github Project](https://github.com/MarcDiethelm/contributing/blob/master/README.md)
+## **Advanced Python OOP topics**
+* [Python Decorator](https://realpython.com/primer-on-python-decorators/)
+* [Mixins](https://easyaspython.com/mixins-for-fun-and-profit-cb9962760556)
+
+## **Putting code on PyPi**
+* Note that pypi.org and test.pypy.org are two different websites.   
+* You'll need to register separately at each website. If you only register at pypi.org, you will not be able to upload to the test.pypy.org repository.  
+* Remember that your package name must be unique. If you use a package name that is already taken, you will get an error when trying to upload the package.
+
+## **Summary of the terminal commands**
+```
+cd binomial_package_files
+python setup.py sdist
+pip install twine
+
+# commands to upload to the pypi test repository
+twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+pip install --index-url https://test.pypi.org/simple/ dsnd-probability
+
+# command to upload to the pypi repository
+twine upload dist/*
+pip install dsnd-probability
+```
+
+## **More PyPi resources**
+[This tutorial](https://packaging.python.org/tutorials/packaging-projects/) explains how to distribute Python packages, including more configuration options for your setup.py file. You'll notice that the Python command to run the setup.py is slightly different, as shown in the following example:
+```
+python3 setup.py sdist bdist_wheel
+```
+This command still outputs a folder called dist. The difference is that you will get both a .tar.gz file and a .whl file. The .tar.gz file is called a source archive, whereas the .whl file is a built distribution. The .whl file is a newer type of installation file for Python packages. When you pip install a package, pip firsts look for a .whl file (wheel file); if there isn't one, it looks for the .tar.gz file.  
+
+To learn more about PyPi, see the following resources:
+* [Overview of PyPi](https://docs.python.org/3/distutils/packageindex.html)
+* [MIT License](https://opensource.org/licenses/MIT)
