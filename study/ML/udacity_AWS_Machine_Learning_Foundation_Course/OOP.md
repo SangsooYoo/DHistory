@@ -1,6 +1,4 @@
 
-
-
 ## **Procedural versus object-oriented programming**
 
 * Objects are defined by characteristics and actions  
