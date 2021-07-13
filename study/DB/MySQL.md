@@ -52,5 +52,24 @@ mysql> desc table_name;
 16 rows in set (0.00 sec)
 ```
 
+## APIs 
+### **PWDCOMPARE**
+암호화된 컬럼의 값과 입력값의 차이를 비교하는 함수
+같을경우 1, 다를경우 0
+```
+WHERE 1=1
+    AND Account = '${userId}'
+    AND PWDCOMPARE('${password}',Password)=1
+```
+
+### **PWDENCRYPT**
+입력값을 암호화하는 함수
+```
+INSERT
+    ...
+VALUES 
+    ...PWDENCRYPT('{pRegister.password}'))
+```
+
 ## 출처
 https://changun516.tistory.com/55 [하루의 쉼터]
