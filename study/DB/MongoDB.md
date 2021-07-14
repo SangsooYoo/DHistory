@@ -1,5 +1,16 @@
 # MongoDB
 
+## How to install MongoDB
+on Linux
+```
+$ apt install mongodb
+```
+on Max
+```
+$ tap mongodb/brew
+$ brew install mongodb-community@4.4
+$ brew services start mongodb-community@4.4
+```
 ## Nodejs Mongodb plugin
 
 ## MongoDB cli
