@@ -4,6 +4,12 @@
 $ sudo apt install mysql-server
 $ sudo service mysql start
 ```
+on Mac
+```
+$ brew install mysql 
+$ brew services start mysql
+
+```
 # how to set localhost account information
 ```
 // refer the 'config/DBOption.json' for id and password
