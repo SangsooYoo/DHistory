@@ -1,5 +1,5 @@
-# **SQL query문 문법**
----
+# **SQL query syntax**
+
 ## **테이블 생성**
 ### **CREATE TABLE**
 기본 문법  
